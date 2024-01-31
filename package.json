@@ -1,0 +1,52 @@
+{
+    "version": "0.1.0",
+    "license": "MIT",
+    "typings": "dist/index.d.ts",
+    "files": [
+        "dist",
+        "src"
+    ],
+    "engines": {
+        "node": ">=10"
+    },
+    "scripts": {
+        "start": "node ./esbuild.mjs watch",
+        "build": "node ./esbuild.mjs build",
+        "clean": "rmdir dist /s /q",
+        "lint": "eslint src/",
+        "prepare": "husky install",
+        "size": "size-limit",
+        "analyze": "size-limit --why",
+        "format": "prettier src/ --write --ignore-unknown"
+    },
+    "lint-staged": {
+        "*.ts": "eslint",
+        "**/*": "prettier --write --ignore-unknown"
+    },
+    "name": "stablercharacter.ts",
+    "author": "Satakun Utama",
+    "module": "dist/index.js",
+    "size-limit": [
+        {
+            "path": "dist/index.js",
+            "limit": "9.5 s"
+        }
+    ],
+    "devDependencies": {
+        "@size-limit/preset-big-lib": "^11.0.2",
+        "@typescript-eslint/eslint-plugin": "^6.18.1",
+        "@typescript-eslint/parser": "^6.18.1",
+        "esbuild": "0.19.11",
+        "eslint": "^8.56.0",
+        "eslint-config-prettier": "^9.1.0",
+        "husky": "^8.0.3",
+        "lint-staged": "^15.2.0",
+        "prettier": "3.2.1",
+        "size-limit": "^11.0.1",
+        "tslib": "^2.6.2",
+        "typescript": "^5.3.3"
+    },
+    "dependencies": {
+        "phaser": "^3.70.0"
+    }
+}
